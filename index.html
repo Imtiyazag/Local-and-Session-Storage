@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage and Session Storage</title>
+    <style>
+        .btn{
+            background-color: blue;
+            color: white;
+            margin: 10px;
+        }
+        .btn2{
+            background-color: rgb(2, 25, 27);
+            color: rgb(253, 251, 249);
+            margin: 10px;
+        }
+        .container{
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 id="demo"></h2>
+
+    <div class="container">
+    <div class="container2">
+        Enter Name: <input type="text" id="username" placeholder="Username">
+    </div>
+
+    <div >
+        <button class="btn" onclick="saveLocalStorage()">Save To LocalStorage</button>
+        <button class="btn" onclick="saveSessionStorage()">Save To SessionStorage</button>
+    </div>
+    <div >
+        <button class="btn2" onclick="getLocalStorage()">Get LocalStorage</button>
+        <button class="btn2" onclick="getSessionStorage()">Get SessionStorage</button>
+        <button class="btn2" onclick=" clearData()">Clear Data </button>
+    </div>
+</div>
+
+
+<script>
+  function saveLocalStorage(){
+    let name = document.getElementById("username").value
+    localStorage.setItem("Name",name)   
+    alert("The name is saved to local storage", name);
+  }
+
+  function saveSessionStorage(){
+    let username = document.getElementById("username").value;
+    sessionStorage.setItem("Name",username);
+    alert("The name is saved to session storage")
+  }
+
+  function getLocalStorage(){
+    let get = localStorage.getItem("Name")
+    document.getElementById("demo").innerHTML = get;
+  }
+
+  function getSessionStorage(){
+    let getSess = sessionStorage.getItem("Name")
+    document.getElementById("demo").innerHTML = getSess;
+    console.log("session");
+  }
+
+  function clearData(){
+    localStorage.clear();
+    sessionStorage.clear();
+    document.getElementById("demo").innerHTML = "Data Cleared Successfully"
+  }
+
+</script>
+</body>
+</html>
